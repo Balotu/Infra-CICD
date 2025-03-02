@@ -64,8 +64,8 @@ resource "aws_instance" "example" {
               curl -sSL https://install.python-poetry.org | python3 -
 
               # Install Node.js and npm
-              curl -sL https://rpm.nodesource.com/setup_14.x | bash -
-              yum install -y nodejs
+              curl -o- https://fnm.vercel.app/install | bash
+              fnm install 14
               EOF
 
   tags = {
