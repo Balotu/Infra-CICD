@@ -45,7 +45,7 @@ resource "aws_security_group" "CICD_sg" {
 resource "aws_instance" "example" {
   ami           = "ami-04b4f1a9cf54c11d0"
   instance_type = "t2.micro"
-  security_groups = [aws_security_group.CICD_sg.name]
+  vpc_security_group_ids = [aws_security_group.CICD_sg.id]
   subnet_id     =  "subnet-06b62cc4b80051036"
   user_data = <<-EOF
               #!/bin/bash
