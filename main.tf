@@ -2,8 +2,8 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
+resource "aws_security_group" "CICD_sg" {
+  name        = "CICD_sg"
   description = "Allow SSH inbound traffic"
 
   ingress {
