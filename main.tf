@@ -47,6 +47,7 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.CICD_sg.id]
   subnet_id     =  "subnet-06b62cc4b80051036"
+  key_name      = "My_Demo_KP"
   user_data = <<-EOF
               #!/bin/bash
               # Update the package repository
