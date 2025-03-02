@@ -45,7 +45,7 @@ resource "aws_security_group" "CICD_sg" {
 resource "aws_instance" "example" {
   ami           = "ami-04b4f1a9cf54c11d0"
   instance_type = "t2.micro"
-  security_groups = [aws_security_group.allow_ssh.name]
+  security_groups = [aws_security_group.CICD_sg.name]
 
   user_data = <<-EOF
               #!/bin/bash
