@@ -43,7 +43,7 @@ resource "aws_security_group" "allow_ssh" {
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe01e"
+  ami           = "ami-04b4f1a9cf54c11d0"
   instance_type = "t2.micro"
   security_groups = [aws_security_group.allow_ssh.name]
 
@@ -78,4 +78,13 @@ output "instance_id" {
 
 output "instance_public_ip" {
   value = aws_instance.example.public_ip
+}
+
+terraform {
+  backend "s3" {
+    bucket = "my-1st-s3-bucketaham"
+    key = "./terraform.tfstate"
+    region = "us-east-1"
+    encrypt = true
+  }
 }
